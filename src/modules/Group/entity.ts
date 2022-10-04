@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, JoinTable, ManyToMany } from 'typeorm';
+import {
+  Entity,
+  Index,
+  Column,
+  PrimaryGeneratedColumn,
+  JoinTable,
+  ManyToMany,
+  PrimaryColumn,
+} from 'typeorm';
 import { AnotherEntity } from '../AnotherEntity/entity';
 
 const REF_TABLE_NAME = 'group_to_another_entity';
