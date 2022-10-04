@@ -9,6 +9,8 @@ import {
 } from 'typeorm';
 import { AnotherEntity } from '../AnotherEntity/entity';
 
+const REF_TABLE_NAME = 'group_to_another_entity';
+
 @Entity()
 export class Group {
   @PrimaryGeneratedColumn()
@@ -16,7 +18,7 @@ export class Group {
 
   @ManyToMany(() => AnotherEntity)
   @JoinTable({
-    name: 'group_to_another_entity',
+    name: REF_TABLE_NAME,
     joinColumn: {
       name: 'anotherEntityId',
       referencedColumnName: 'id',
@@ -28,7 +30,7 @@ export class Group {
   anotherEntities: AnotherEntity[];
 }
 
-@Entity('table_of_ref')
+@Entity(REF_TABLE_NAME)
 export class GroupToAnotherEntityTable {
   @PrimaryColumn('int')
   anotherEntityId: number;
