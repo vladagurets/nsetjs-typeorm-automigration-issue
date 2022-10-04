@@ -15,23 +15,19 @@ export class Group {
   id: number;
 
   @Column()
-  @Index()
-  firstName: string;
-
-  @Column({ name: 'last_name', length: 100 })
-  lastName: string;
-
-  @Column({ default: true })
-  isActive: boolean;
-
-  @Column()
   anotherEntityId: number;
 
   @ManyToMany(() => AnotherEntity)
   @JoinTable({
     name: 'table_of_ref',
-    joinColumn: { name: 'anotherEntityId', referencedColumnName: 'id' },
-    inverseJoinColumn: { name: 'groupId', referencedColumnName: 'id' },
+    joinColumn: {
+      name: 'anotherEntityId',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'groupId',
+      referencedColumnName: 'id',
+    },
   })
   countryPlansCollection: AnotherEntity[];
 }
