@@ -6,6 +6,6 @@ export class AnotherEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  // @ManyToMany(() => Group, (group) => group.anotherEntities)
-  // groups: Group[];
+  @ManyToMany(() => Group, (group) => group.anotherEntities)
+  groups: Group[];
 }

@@ -1,12 +1,4 @@
-import {
-  Entity,
-  Index,
-  Column,
-  PrimaryGeneratedColumn,
-  JoinTable,
-  ManyToMany,
-  PrimaryColumn,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, JoinTable, ManyToMany } from 'typeorm';
 import { AnotherEntity } from '../AnotherEntity/entity';
 
 const REF_TABLE_NAME = 'group_to_another_entity';
@@ -28,13 +20,4 @@ export class Group {
     },
   })
   anotherEntities: AnotherEntity[];
-}
-
-@Entity(REF_TABLE_NAME)
-export class GroupToAnotherEntityTable {
-  @PrimaryColumn('int')
-  anotherEntityId: number;
-
-  @PrimaryColumn('int')
-  groupId: number;
 }
