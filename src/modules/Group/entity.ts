@@ -32,15 +32,17 @@ export class Group {
   countryPlansCollection: AnotherEntity[];
 }
 
+// @Index('IDX_UNQ_anotherEntityId', ['anotherEntityId'], {
+//   unique: true,
+// })
+// @Index('IDX_UNQ_groupId', ['groupId'], {
+//   unique: true,
+// })
 @Entity('table_of_ref')
 export class GroupToAnotherEntityTable {
-  @PrimaryColumn('int', {
-    name: 'anotherEntityId',
-  })
-  planId: number;
+  @PrimaryColumn('int')
+  anotherEntityId: number;
 
-  @PrimaryColumn('int', {
-    name: 'groupId',
-  })
-  countryplanId: number;
+  @PrimaryColumn('int')
+  groupId: number;
 }
