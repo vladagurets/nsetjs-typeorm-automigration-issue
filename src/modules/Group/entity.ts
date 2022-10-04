@@ -14,26 +14,25 @@ export class Group {
   @PrimaryGeneratedColumn()
   id: number;
 
-  // @ManyToMany(() => AnotherEntity, (anotherEntity) => anotherEntity.id)
-  // @JoinTable({
-  //   name: 'table_of_ref',
-  //   joinColumn: {
-  //     name: 'anotherEntityId',
-  //     referencedColumnName: 'id',
-  //   },
-  //   inverseJoinColumn: {
-  //     name: 'groupId',
-  //     referencedColumnName: 'id',
-  //   },
-  // })
-  // countryPlansCollection: AnotherEntity[];
+  @ManyToMany(() => AnotherEntity)
+  @JoinTable({
+    name: 'group_to_another_entity',
+    joinColumn: {
+      name: 'anotherEntityId',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'groupId',
+    },
+  })
+  anotherEntities: AnotherEntity[];
 }
 
-// @Entity('table_of_ref')
-// export class GroupToAnotherEntityTable {
-//   @PrimaryColumn('int')
-//   anotherEntityId: number;
+@Entity('table_of_ref')
+export class GroupToAnotherEntityTable {
+  @PrimaryColumn('int')
+  anotherEntityId: number;
 
-//   @PrimaryColumn('int')
-//   groupId: number;
-// }
+  @PrimaryColumn('int')
+  groupId: number;
+}

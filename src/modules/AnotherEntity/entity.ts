@@ -5,4 +5,7 @@ import { Group } from '../Group/entity';
 export class AnotherEntity {
   @PrimaryGeneratedColumn()
   id: number;
+
+  // @ManyToMany(() => Group, (group) => group.anotherEntities)
+  // groups: Group[];
 }

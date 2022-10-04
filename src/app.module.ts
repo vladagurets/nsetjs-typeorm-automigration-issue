@@ -3,10 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AnotherEntity } from './modules/AnotherEntity/entity';
-import {
-  Group,
-  // GroupToAnotherEntityTable
-} from './modules/Group/entity';
+import { Group, GroupToAnotherEntityTable } from './modules/Group/entity';
 import { User } from './modules/User/entity';
 
 @Module({
@@ -18,7 +15,7 @@ import { User } from './modules/User/entity';
       username: 'root',
       password: 'root',
       database: 'test_db',
-      entities: [User, Group, AnotherEntity],
+      entities: [User, Group, AnotherEntity, GroupToAnotherEntityTable],
       synchronize: false,
     }),
   ],
