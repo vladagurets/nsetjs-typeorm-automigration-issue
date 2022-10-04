@@ -14,9 +14,6 @@ export class Group {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  anotherEntityId: number;
-
   @ManyToMany(() => AnotherEntity)
   @JoinTable({
     name: 'table_of_ref',
@@ -32,12 +29,6 @@ export class Group {
   countryPlansCollection: AnotherEntity[];
 }
 
-// @Index('IDX_UNQ_anotherEntityId', ['anotherEntityId'], {
-//   unique: true,
-// })
-// @Index('IDX_UNQ_groupId', ['groupId'], {
-//   unique: true,
-// })
 @Entity('table_of_ref')
 export class GroupToAnotherEntityTable {
   @PrimaryColumn('int')
